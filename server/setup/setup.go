@@ -135,7 +135,7 @@ func SetupRoutes(app *fiber.App) {
 		AllowHeaders: "Origin, Content-Type, Accept",
 	}))
 
-	app.Get("redirect/:redirect", RedirectToMainURL)
+	app.Get("/r/:redirect", RedirectToMainURL)
 
 	app.Get("/api/v1/get-urls", GetAllURLS)
 	app.Get("/api/v1/get-url/:id", GetURL)

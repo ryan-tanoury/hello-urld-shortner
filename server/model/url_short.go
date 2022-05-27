@@ -1,7 +1,5 @@
 package model
 
-import "fmt"
-
 func GetAllURLS() ([]Url_Short, error) {
 	var urls []Url_Short
 
@@ -41,8 +39,7 @@ func DeleteURL(id uint64) error {
 
 func FindByShortURL(url string) (Url_Short, error) {
 	var short_url Url_Short
-	fmt.Println(url)
-	transaction := database.Where("Short_URL = ?", url).First(&url)
+	transaction := database.Where("short_url = ?", url).First(&short_url)
 
 	return short_url, transaction.Error
 }
