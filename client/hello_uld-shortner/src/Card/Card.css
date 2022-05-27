@@ -1,0 +1,12 @@
+.background {
+    background-color: lightgrey;
+    height: 100vh
+}
+
+.card {
+    margin-right: 50%;
+    margin-left: 50%;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+}
