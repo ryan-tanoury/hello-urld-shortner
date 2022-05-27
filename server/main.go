@@ -8,5 +8,5 @@ import (
 func main() {
 	model.SetupDatabase()
 
-	setup.Setup()
+	setup.SetupAndRun()
 }
