@@ -10,7 +10,7 @@ import (
 
 var database *gorm.DB
 
-type Url_Short struct {
+type Url_D struct {
 	Id                    uint64 `json:"id" gorm:"primaryKey"`
 	Main_URL              string `json:"main_url" gorm:"type:text;not null"`
 	Short_URL             string `json:"short_url" gorm:"unique;not null"`
@@ -31,7 +31,7 @@ func SetupDatabase() {
 		panic(err)
 	}
 
-	err = database.AutoMigrate(&Url_Short{})
+	err = database.AutoMigrate(&Url_D{})
 	if err != nil {
 		panic(err)
 	}
