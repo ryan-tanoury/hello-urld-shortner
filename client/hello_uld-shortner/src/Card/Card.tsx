@@ -4,7 +4,7 @@ import './Card.css';
 
 function Card() {
     return (
-    <div className="background">
+    <div>
         <div className="align-items-center justify-content-center">
             <div className="col-8 col-lg-4 col-xl-3">
                 <div className="card">

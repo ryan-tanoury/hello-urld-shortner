@@ -9,7 +9,13 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-    <Table />
+  <div className="background">
+    <div className="col-3"></div>
+    <div className="col-3">
+      <Table />
+    </div>
+    <div className="col-3"></div>
+  </ div>
 );
 
 // If you want to start measuring performance in your app, pass a function
