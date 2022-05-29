@@ -161,6 +161,9 @@ func RedirectToMainURL(ctx *fiber.Ctx) error {
 }
 
 func determineUrlIsExpired(urlD model.Url_D, ctx *fiber.Ctx) bool {
+	if urlD.Expiration_Date == "" {
+		return false
+	}
 	todaysDate := time.Now().Format("2006-01-02")
 
 	return todaysDate >= urlD.Expiration_Date
@@ -168,7 +171,7 @@ func determineUrlIsExpired(urlD model.Url_D, ctx *fiber.Ctx) bool {
 
 func SetupRoutes(app *fiber.App) {
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: "localhost",
+		AllowOrigins: "*",
 		AllowHeaders: "Origin, Content-Type, Accept",
 	}))
 
@@ -187,5 +190,5 @@ func SetupAndRun() {
 
 	SetupRoutes(app)
 
-	log.Fatal(app.Listen(":3000"))
+	log.Fatal(app.Listen(":5000"))
 }

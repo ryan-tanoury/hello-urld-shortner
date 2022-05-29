@@ -2,6 +2,10 @@
     width: 70%;
 }
 
-.deleteButton, .editButton {
+.deleteButton, .editButton, .copyUrlButton {
     cursor: pointer;
+}
+
+.tableData {
+    justify-content: center;
 }
