@@ -5,7 +5,7 @@ import EditIcon from '../icons/pencil.svg';
 import ClipBoard from "../icons/clipboard.svg";
 import * as api from "../api/api";
 import UrlD from '../data/UrlD';
-import Modal from '../Modals/Modal';
+import Modal from '../Modal/Modal';
 
 function Table(this: any) {
     const [urls, setUrls] = useState<UrlD[]>([]);
@@ -23,11 +23,11 @@ function Table(this: any) {
     })
 
     useEffect(() => {
-        const getAllURls = async () => {
+        const getAllURLs = async () => {
             let urlDs : UrlD[] = await api.getAllURLs()
             setUrls(urlDs)
         }
-        getAllURls()
+        getAllURLs()
 }, []);
 
     const handleDelete = async (id : string) => {
