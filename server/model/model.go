@@ -19,10 +19,7 @@ type Url_D struct {
 	Expiration_Date       string `json:"expiration_date"`
 }
 
-// docker run --name url_shortner_db -d -p 5432:5432 -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=supersecretpassword postgres
-
 func SetupDatabase() {
-	// 172.17.0.2
 	postgresConnectionInfo := fmt.Sprintf("host=localhost password=%s port=5432 sslmode=disable", os.Getenv("POSTGRES_PASSWORD"))
 
 	var err error

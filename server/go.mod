@@ -8,6 +8,7 @@ require (
 	github.com/gofiber/fiber v1.14.6
 	github.com/gofiber/fiber/v2 v2.34.0
 	github.com/jinzhu/now v1.1.5 // indirect
+	github.com/stretchr/testify v1.7.0
 	gorm.io/driver/postgres v1.3.6
 	gorm.io/gorm v1.23.5
 )
