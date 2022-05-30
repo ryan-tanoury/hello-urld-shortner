@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "bootstrap-icons": "^1.8.3",
+    "get-google-fonts": "^1.2.2",
+    "material-icons": "^1.11.0"
+  }
+}
