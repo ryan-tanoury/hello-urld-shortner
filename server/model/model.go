@@ -20,12 +20,17 @@ type Url_D struct {
 }
 
 func SetupDatabase() {
-	postgresConnectionInfo := fmt.Sprintf("host=localhost password=%s port=5432 sslmode=disable", os.Getenv("POSTGRES_PASSWORD"))
+	// "host=%s port=%s user=%s password=%s dbname=%s sslmode=disable"
+	// host=localhost user=postgres password=password dbname=db port=5432 sslmode=disable TimeZone=Asia/Shanghai
+	// "host=0.0.0.0 user=postgres password=supersecretpassword dbname=urlShortner port=5432 sslmode=disable"
+	// postgresConnectionInfo := fmt.Sprintf("host=172.17.0.2 password=%s port=5432 database=url_shortner sslmode=disable", os.Getenv("POSTGRES_PASSWORD"))
+	// docker run --name app-db -d -e POSTGRES_USER=testuser -e POSTGRES_PASSWORD=testpassword postgres
+	dbConnectionString := fmt.Sprintf("host=localhost password=%s port=5432 sslmode=disable", os.Getenv("POSTGRES_PASSWORD"))
 
 	var err error
-	database, err = gorm.Open(postgres.Open(postgresConnectionInfo), &gorm.Config{})
+	database, err = gorm.Open(postgres.Open(dbConnectionString), &gorm.Config{})
 	if err != nil {
-		panic(err)
+		panic(fmt.Sprintf("Failed to connect to database - %s", dbConnectionString))
 	}
 
 	err = database.AutoMigrate(&Url_D{})

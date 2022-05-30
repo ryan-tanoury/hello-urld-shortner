@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as api from "../api/api";
 import UrlD from "../data/UrlD";
 import { UrlResponse } from "../data/UrlResponse";
+import 'bootstrap/dist/css/bootstrap.css';
 
 function Modal(props : any) {
 
@@ -133,7 +134,7 @@ function Modal(props : any) {
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                 <div className="modal-header">
-                    <h5 className="modal-title">{props.modalData.isEditModal ? "Edit URL" : "Crerate URL"}</h5>
+                    <h5 className="modal-title">{props.modalData.isEditModal ? "Edit URL" : "Create URL"}</h5>
                     <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={handleCloseModal}>
                         <span aria-hidden="true">&times;</span>
                     </button>
