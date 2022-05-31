@@ -27,7 +27,7 @@ function Form(props : any) {
     const generateRandomString = () : string => {
         let result = ""
         const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-        let randomCharacterLength = 5
+        const randomCharacterLength = 5
         const charactersLength = characters.length
         for ( var i = 0; i < randomCharacterLength; i++ ) {
           result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -52,6 +52,11 @@ function Form(props : any) {
     const handleSubmit = async (event : any) => {
         event.preventDefault()
         setSubmitted(true)
+        if (!mainUrl && !shortUrl) {
+            SetError("Invalid, please input a Main URL and Short URL.")
+            return
+        }
+
         if(!mainUrl) {
             SetError("Invalid, please input a Main URL.")
             return;
@@ -149,7 +154,7 @@ function Form(props : any) {
                                 value={mainUrl}
                                 onChange={handleMainUrlInputChange} />
                         </div>
-                        {submitted && !mainUrl && <span id="mainUrl-error">Please enter a Main URL</span>}
+                        {submitted && !mainUrl && <div className="alert alert-danger">Please enter a Main URL</div>}
                         <div className="input-group mb-3">
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="inputGroup-sizing-default">Short URL</span>
@@ -163,7 +168,7 @@ function Form(props : any) {
                                     onChange={(event) => handleRandomGenerationCheckboxClick(event)} checked={isRandomGenerationChecked}/>
                             <span className="form-check-label" id="inputGroup-sizing-default">Generate a Random URL</span>
                         </div>
-                        {submitted && !shortUrl && <span id="shortUrl-error">Please enter a Short URL</span>}
+                        {submitted && !shortUrl && <div className="alert alert-danger">Please enter a Short URL</div>}
                         </div>
                         <div className="input-group mb-3">
                         <div className="input-group-prepend">
@@ -174,7 +179,7 @@ function Form(props : any) {
                             value={expirationDate}
                             onChange={handleExpirationDateInputChange} />
                         </div>
-                        {error && <div className="error-message">Error! {error}</div>}
+                        {error && <div className="alert alert-danger">Error! {error}</div>}
                         <div className="form-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="form" onClick={handleCloseForm}>Close</button>
                             <button type="button" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
