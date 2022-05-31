@@ -6,6 +6,7 @@ import ClipBoard from "../icons/clipboard.svg";
 import * as api from "../api/api";
 import UrlD from '../data/UrlD';
 import Modal from '../Modal/Modal';
+import 'bootstrap/dist/css/bootstrap.css';
 
 function Table(this: any) {
     const [urls, setUrls] = useState<UrlD[]>([]);

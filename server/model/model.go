@@ -2,7 +2,6 @@ package model
 
 import (
 	"fmt"
-	"os"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -20,12 +19,12 @@ type Url_D struct {
 }
 
 func SetupDatabase() {
-	postgresConnectionInfo := fmt.Sprintf("host=localhost password=%s port=5432 sslmode=disable", os.Getenv("POSTGRES_PASSWORD"))
+	dbConnectionString := "host=postgres user=postgres password=postgres database=postgres sslmode=disable"
 
 	var err error
-	database, err = gorm.Open(postgres.Open(postgresConnectionInfo), &gorm.Config{})
+	database, err = gorm.Open(postgres.Open(dbConnectionString), &gorm.Config{})
 	if err != nil {
-		panic(err)
+		panic(fmt.Sprintf("Failed to connect to database - %s", dbConnectionString))
 	}
 
 	err = database.AutoMigrate(&Url_D{})
