@@ -9,3 +9,15 @@
 .tableData {
     justify-content: center;
 }
+
+.table-margin {
+    min-width: 150%;
+    margin-left: 133%;
+    margin-right: 50%;
+}
+
+.create-button {
+    min-width: 100%;
+    margin-left: 250%;
+    margin-right: 50%;
+}
