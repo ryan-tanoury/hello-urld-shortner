@@ -1,7 +1,7 @@
 import UrlD from "../data/UrlD";
 import { UrlResponse } from "../data/UrlResponse";
 
-const apiHost = process.env.PORT || "http://localhost:5000"
+const apiHost = process.env.PORT || "http://127.0.0.1:5000"
 const apiVersion = "/api/v1/"
 const apiHostVersion = apiHost + apiVersion
 

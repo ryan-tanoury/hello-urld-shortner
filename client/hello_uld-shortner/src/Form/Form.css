@@ -1,0 +1,7 @@
+.checkbox-style {
+    padding: 5%;
+}
+
+.mainUrl-error, .shortUrl-error {
+    color: red;
+}
