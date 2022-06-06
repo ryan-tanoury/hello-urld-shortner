@@ -8,10 +8,13 @@ import (
 )
 
 func SetupRoutes(app *fiber.App) {
-	app.Use(cors.New(cors.Config{
+	allowCors := cors.New(cors.Config{
 		AllowOrigins: "*",
 		AllowHeaders: "Origin, Content-Type, Accept",
-	}))
+	})
+	app.Use(allowCors)
+
+	app.Options("*", allowCors)
 
 	app.Get("/r/:redirect", apis.RedirectToMainURL)
 
